@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>DevHouse | Software House - Web & Mobile Apps | Tugas Kartika Dwi Astuti</title>
+    <!-- Bootstrap 5 CSS + Icons + Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #0f172a;
+            --soft-bg: #f8fafc;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        /* navbar custom */
+        .navbar {
+            transition: all 0.3s ease;
+            background-color: rgba(255,255,255,0.96);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.7rem;
+            letter-spacing: -0.5px;
+            color: var(--primary) !important;
+        }
+        .nav-link {
+            font-weight: 500;
+            color: #1e293b !important;
+            margin: 0 0.25rem;
+            transition: 0.2s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary) !important;
+        }
+        .btn-primary-custom {
+            background-color: var(--primary);
+            border: none;
+            padding: 10px 24px;
+            font-weight: 600;
+            border-radius: 40px;
+            transition: 0.2s;
+        }
+        .btn-primary-custom:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -8px rgba(79,70,229,0.4);
+        }
+        .btn-outline-custom {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 40px;
+            padding: 8px 22px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .btn-outline-custom:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #f1f5f9 0%, #eef2ff 100%);
+            padding: 100px 0 80px 0;
+        }
+        .section-title {
+            font-weight: 800;
+            font-size: 2.3rem;
+            color: #0f172a;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem 1.5rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -12px rgba(79,70,229,0.2);
+            border-color: rgba(79,70,229,0.2);
+        }
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background: #eef2ff;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .icon-circle i {
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+        .project-item {
+            border-radius: 1.2rem;
+            overflow: hidden;
+            transition: 0.25s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .project-item img {
+            transition: 0.4s;
+            height: 220px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .project-item:hover img {
+            transform: scale(1.05);
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            box-shadow: 0 12px 25px -8px rgba(0,0,0,0.05);
+            margin: 0 0.5rem;
+            border: 1px solid #e2e8f0;
+        }
+        .footer {
+            background-color: #0f172a;
+            color: #cbd5e1;
+        }
+        .contact-info i {
+            width: 32px;
+            color: var(--primary);
+        }
+        /* profile card untuk tugas */
+        .profile-tugas {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.5rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+            transition: 0.2s;
+        }
+        .profile-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 70px 0 50px;
+                text-align: center;
+            }
+            .section-title {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top py-3">
+    <div class="container">
+        <a class="navbar-brand" href="#">Dev<span style="color:#0f172a;">House</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" href="#home">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Layanan</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">Portofolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary-custom text-white">Konsultasi Gratis</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section (Home) + Identitas Tugas -->
+<section id="home" class="hero-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-3">Software House Terpercaya</span>
+                <h1 class="display-4 fw-bold mb-3" style="color:#0f172a;">Bangun Digital <span style="color:#4f46e5;">Bisnis Anda</span> dengan Solusi IT Modern</h1>
+                <p class="lead mb-4 text-secondary">Kami mengembangkan aplikasi web, mobile, dan software custom untuk membantu bisnis Anda bertransformasi digital. Inovasi, kecepatan, dan performa terbaik.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#contact" class="btn btn-primary-custom text-white px-4 py-3">Mulai Proyek <i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="#portfolio" class="btn btn-outline-custom px-4 py-3">Lihat Portofolio</a>
+                </div>
+                <div class="mt-5 d-flex gap-4">
+                    <div><i class="fas fa-check-circle text-primary"></i> <span class="fw-semibold">50+ Proyek Selesai</span></div>
+                    <div><i class="fas fa-users text-primary"></i> <span class="fw-semibold">24+ Klien Aktif</span></div>
+                    <div><i class="fas fa-rocket text-primary"></i> <span class="fw-semibold">95% Kepuasan</span></div>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="https://placehold.co/600x500/EEF2FF/4F46E5?text=Dev+Team+Illustration&font=montserrat" alt="Hero illustration" class="img-fluid rounded-4 shadow-lg">
+            </div>
+        </div>
+        
+        <!-- KARTU IDENTITAS TUGAS (Ditempatkan di hero agar terlihat jelas) -->
+        <div class="row mt-5 justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="profile-tugas d-flex align-items-center gap-3 flex-wrap">
+                    <div>
+                        <img src="./img/profile.jpeg" alt="Foto Kartika Dwi Astuti" class="profile-img">
+                    </div>
+                    <div class="flex-grow-1">
+                        <h5 class="mb-1 fw-bold text-dark">Tugas Digital Bisnis</h5>
+                        <p class="mb-0 fw-semibold" style="color: #1e293b;">Nama: <span class="text-primary">Kartika Dwi Astuti</span></p>
+                        <p class="mb-0 fw-semibold" style="color: #1e293b;">NPM: <span class="text-primary">23.115824</span></p>
+                        <p class="mb-0 small text-secondary">Web Profile Software House | Pengembangan Web, Mobile & Apps</p>
+                    </div>
+                    <div class="ms-auto">
+                        <i class="fas fa-laptop-code fa-2x text-primary opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-5" style="background-color: white;">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <span class="badge bg-light text-primary px-3 py-2 rounded-pill">Apa yang kami tawarkan</span>
+            <h2 class="section-title mt-3">Solusi Digital Lengkap</h2>
+            <p class="text-secondary mt-3 mx-auto" style="max-width: 600px;">Dari pengembangan web hingga mobile apps, kami hadir untuk mewujudkan ide bisnis Anda.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="icon-circle"><i class="fas fa-globe"></i></div>
+                    <h4 class="fw-bold">Web Development</h4>
+                    <p class="text-secondary">Website company profile, sistem informasi, e-commerce, dashboard admin dengan teknologi modern (Laravel, React, Vue, Node.js).</p>
+                    <a href="#" class="text-primary fw-semibold text-decoration-none">Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="icon-circle"><i class="fas fa-mobile-alt"></i></div>
+                    <h4 class="fw-bold">Mobile Application</h4>
+                    <p class="text-secondary">Aplikasi Android & iOS native atau cross-platform (Flutter, React Native). Solusi mobile untuk startup & enterprise.</p>
+                    <a href="#" class="text-primary fw-semibold text-decoration-none">Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="icon-circle"><i class="fas fa-code-branch"></i></div>
+                    <h4 class="fw-bold">Custom Software</h4>
+                    <p class="text-secondary">Sistem ERP, CRM, aplikasi internal, API Integration dengan arsitektur scalable dan keamanan terbaik.</p>
+                    <a href="#" class="text-primary fw-semibold text-decoration-none">Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="icon-circle"><i class="fas fa-paint-brush"></i></div>
+                    <h4 class="fw-bold">UI/UX Design</h4>
+                    <p class="text-secondary">Desain antarmuka modern, user experience riset, prototyping, dan branding digital yang menarik.</p>
+                    <a href="#" class="text-primary fw-semibold text-decoration-none">Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="icon-circle"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h4 class="fw-bold">DevOps & Deployment</h4>
+                    <p class="text-secondary">Hosting, cloud server (AWS/GCP), CI/CD pipeline, maintenance & support 24/7.</p>
+                    <a href="#" class="text-primary fw-semibold text-decoration-none">Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="icon-circle"><i class="fas fa-chart-line"></i></div>
+                    <h4 class="fw-bold">Digital Consulting</h4>
+                    <p class="text-secondary">Konsultasi transformasi digital, IT strategy, scale-up produk dan optimalisasi performa.</p>
+                    <a href="#" class="text-primary fw-semibold text-decoration-none">Selengkapnya <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="py-5" style="background-color: #f8fafc;">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <span class="badge bg-white text-primary px-3 py-2 rounded-pill shadow-sm">Hasil Karya</span>
+            <h2 class="section-title mt-3">Portofolio Unggulan</h2>
+            <p class="text-secondary mt-3">Beberapa proyek sukses yang telah kami selesaikan untuk klien dari berbagai industri.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="project-item bg-white rounded-4">
+                    <img src="https://placehold.co/600x400/F1F5F9/4F46E5?text=E-commerce+App&font=montserrat" alt="Project 1" class="img-fluid">
+                    <div class="p-4">
+                        <h5 class="fw-bold">E-Commerce Modern</h5>
+                        <p class="text-secondary">Platform belanja online dengan payment gateway, manajemen stok, dan dashboard realtime.</p>
+                        <span class="badge bg-light text-dark me-1">React.js</span>
+                        <span class="badge bg-light text-dark me-1">Laravel</span>
+                        <span class="badge bg-light text-dark">MySQL</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-item bg-white rounded-4">
+                    <img src="https://placehold.co/600x400/F1F5F9/4F46E5?text=Mobile+Health&font=montserrat" alt="Project 2" class="img-fluid">
+                    <div class="p-4">
+                        <h5 class="fw-bold">HealthCare Mobile</h5>
+                        <p class="text-secondary">Aplikasi konsultasi dokter, booking janji temu & rekam medis digital (Flutter + Firebase).</p>
+                        <span class="badge bg-light text-dark me-1">Flutter</span>
+                        <span class="badge bg-light text-dark me-1">Firebase</span>
+                        <span class="badge bg-light text-dark">iOS/Android</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-item bg-white rounded-4">
+                    <img src="https://placehold.co/600x400/F1F5F9/4F46E5?text=ERP+System&font=montserrat" alt="Project 3" class="img-fluid">
+                    <div class="p-4">
+                        <h5 class="fw-bold">ERP Perusahaan Logistik</h5>
+                        <p class="text-secondary">Sistem manajemen gudang, armada, dan laporan keuangan terintegrasi.</p>
+                        <span class="badge bg-light text-dark me-1">Vue.js</span>
+                        <span class="badge bg-light text-dark me-1">Node.js</span>
+                        <span class="badge bg-light text-dark">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <a href="#" class="btn btn-outline-custom px-5">Lihat Semua Proyek <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section + tambahan identitas juga bisa diselipkan -->
+<section id="about" class="py-5">
+    <div class="container py-4">
+        <div class="row align-items-center g-5">
+           <div class="col-lg-6">
+                <img 
+                    src="./img/team.png" 
+                    alt="IT Company Team Meeting" 
+                    class="img-fluid rounded-4 shadow"
+                />
+            </div>
+            <div class="col-lg-6">
+                <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill">Tentang DevHouse</span>
+                <h2 class="display-6 fw-bold mt-3">Kami Mitra Digital Anda</h2>
+                <p class="mt-3 text-secondary">DevHouse berdiri sejak 2018 sebagai software house yang fokus memberikan solusi teknologi tepat guna. Dengan tim yang berpengalaman di bidang web, mobile, dan sistem enterprise, kami telah dipercaya lebih dari 50+ klien dari berbagai sektor.</p>
+                <p class="text-secondary">Visi kami menjadi mitra terpercaya dalam transformasi digital, memberikan kode berkualitas, ketepatan waktu, dan dukungan purna jual. Setiap project dikerjakan dengan prinsip agile dan iterasi cepat sesuai kebutuhan bisnis.</p>
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <div class="d-flex align-items-center gap-2 mb-3"><i class="fas fa-check-circle text-primary fa-lg"></i> <span>Tim ahli & sertifikasi</span></div>
+                        <div class="d-flex align-items-center gap-2 mb-3"><i class="fas fa-check-circle text-primary fa-lg"></i> <span>Dokumentasi lengkap</span></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center gap-2 mb-3"><i class="fas fa-check-circle text-primary fa-lg"></i> <span>Garansi pemeliharaan</span></div>
+                        <div class="d-flex align-items-center gap-2 mb-3"><i class="fas fa-check-circle text-primary fa-lg"></i> <span>Skalabilitas siap tumbuh</span></div>
+                    </div>
+                </div>
+                <a href="#contact" class="btn btn-primary-custom text-white mt-3">Hubungi Tim Kami</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Apa Kata Klien</h2>
+            <p class="text-secondary mt-3">Kepercayaan klien adalah capaian terbaik kami</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i>
+                    </div>
+                    <p class="fst-italic">"Tim DevHouse sangat profesional, aplikasi mobile yang mereka buat sesuai ekspektasi dan tepat waktu. Dukungan maintenance responsif."</p>
+                    <div class="d-flex mt-3">
+                        <div><i class="fas fa-user-circle fa-2x text-secondary"></i></div>
+                        <div class="ms-3"><strong>Andi Wijaya</strong><br>CEO, Maju Digital</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i>
+                    </div>
+                    <p class="fst-italic">"Website company profile dan sistem CRM dari DevHouse meningkatkan efisiensi tim kami. Design modern dan fitur mudah digunakan."</p>
+                    <div class="d-flex mt-3">
+                        <div><i class="fas fa-user-circle fa-2x text-secondary"></i></div>
+                        <div class="ms-3"><strong>Rina Permata</strong><br>Marketing Manager, Properti Nusantara</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i>
+                    </div>
+                    <p class="fst-italic">"Kolaborasi yang sangat baik, mereka memahami kebutuhan bisnis kami. Aplikasi Android berjalan mulus dan banyak fitur unggulan."</p>
+                    <div class="d-flex mt-3">
+                        <div><i class="fas fa-user-circle fa-2x text-secondary"></i></div>
+                        <div class="ms-3"><strong>Fajar Hidayat</strong><br>Founder, Edutech Startup</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5">
+    <div class="container py-4">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <div class="bg-white p-4 rounded-4 shadow-sm h-100">
+                    <h3 class="fw-bold mb-4">Hubungi Kami</h3>
+                    <p class="text-secondary">Siap membangun solusi digital untuk bisnis Anda? Diskusikan ide Anda bersama tim ahli kami.</p>
+                    <div class="contact-info mt-4">
+                        <div class="d-flex mb-3"><i class="fas fa-map-marker-alt fa-fw mt-1 me-3"></i> <span>AMIKOM Yogyakarta, Indonesia</span></div>
+                        <div class="d-flex mb-3"><i class="fas fa-phone-alt fa-fw mt-1 me-3"></i> <span>+62 812 111 111 111</span></div>
+                        <div class="d-flex mb-3"><i class="fas fa-envelope fa-fw mt-1 me-3"></i> <span>hello@devhouse.co.id</span></div>
+                        <div class="d-flex mb-3"><i class="fab fa-whatsapp fa-fw mt-1 me-3"></i> <span>+62 812 111 111 111</span></div>
+                    </div>
+                    <div class="mt-4 d-flex gap-3">
+                        <a href="#" class="text-secondary fs-4"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-secondary fs-4"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-secondary fs-4"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="bg-white p-4 rounded-4 shadow-sm">
+                    <h3 class="fw-bold mb-3">Kirim Pesan</h3>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Nama Lengkap</label>
+                                <input type="text" class="form-control" placeholder="Nama Anda">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="email@example.com">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Perusahaan / Proyek</label>
+                                <input type="text" class="form-control" placeholder="Nama perusahaan atau proyek">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Pesan</label>
+                                <textarea rows="4" class="form-control" placeholder="Ceritakan kebutuhan Anda..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary-custom text-white px-5">Kirim Konsultasi <i class="fas fa-paper-plane ms-2"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer + Keterangan tambahan tugas -->
+<footer class="footer pt-5 pb-4">
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-lg-4">
+                <h4 class="text-white fw-bold mb-3">Dev<span class="text-primary">House</span></h4>
+                <p class="small">Software house terpercaya untuk pengembangan web, mobile & apps custom. Transformasi digital bersama para ahli.</p>
+                <!-- tambahan baris kecil untuk identitas tugas di footer -->
+                <p class="small text-secondary mt-2 mb-0"> Tugas Digital Bisnis - Kartika Dwi Astuti (NPM: 23.115824)</p>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h5 class="text-white mb-3">Menu</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#home" class="text-decoration-none text-secondary-emphasis">Beranda</a></li>
+                    <li class="mb-2"><a href="#services" class="text-decoration-none text-secondary-emphasis">Layanan</a></li>
+                    <li class="mb-2"><a href="#portfolio" class="text-decoration-none text-secondary-emphasis">Portofolio</a></li>
+                    <li class="mb-2"><a href="#about" class="text-decoration-none text-secondary-emphasis">Tentang</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <h5 class="text-white mb-3">Layanan</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">Web Development</li>
+                    <li class="mb-2">Mobile Apps</li>
+                    <li class="mb-2">Custom Software</li>
+                    <li class="mb-2">UI/UX Design</li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <h5 class="text-white mb-3">Jam Kerja</h5>
+                <ul class="list-unstyled">
+                    <li>Senin - Jumat : 09.00 - 18.00</li>
+                    <li>Sabtu : 09.00 - 14.00</li>
+                    <li>Minggu & Hari Libur : Tutup</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="mt-4 opacity-25">
+        <div class="text-center pt-3 small">&copy; 2026 DevHouse - Software House. All rights reserved. <br> Web Profile ini dibuat untuk memenuhi tugas Digital Bisnis oleh Kartika Dwi Astuti (NPM: 23.115824).</div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS + Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Smooth scrolling for anchor links -->
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId === "#" || targetId === "") return;
+            const targetElem = document.querySelector(targetId);
+            if(targetElem) {
+                e.preventDefault();
+                targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // update active class sederhana
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                let correspondingLink = Array.from(document.querySelectorAll('.nav-link')).find(link => link.getAttribute('href') === targetId);
+                if(correspondingLink) correspondingLink.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
