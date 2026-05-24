@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevHouse | Semua Portofolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #0f172a;
+            --soft-bg: #f8fafc;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--soft-bg);
+            color: var(--secondary);
+        }
+        .navbar {
+            background-color: rgba(255,255,255,0.96);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.7rem;
+            color: var(--primary) !important;
+        }
+        .hero-portfolio {
+            padding: 96px 0 48px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #eef2ff 100%);
+        }
+        .section-title {
+            font-weight: 800;
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -12px;
+            width: 60px;
+            height: 4px;
+            border-radius: 4px;
+            background: var(--primary);
+        }
+        .btn-primary-custom {
+            background-color: var(--primary);
+            border: none;
+            padding: 10px 24px;
+            font-weight: 600;
+            border-radius: 40px;
+            color: white;
+            transition: 0.2s;
+        }
+        .btn-primary-custom:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+        .btn-outline-custom {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 40px;
+            padding: 8px 22px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .btn-outline-custom:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        .filter-chip {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 999px;
+            padding: 8px 16px;
+            font-weight: 600;
+            color: #475569;
+            display: inline-block;
+        }
+        .project-item {
+            background: white;
+            border-radius: 1.4rem;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+            transition: 0.25s;
+        }
+        .project-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 32px rgba(79, 70, 229, 0.14);
+        }
+        .project-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .project-meta {
+            font-size: 0.92rem;
+            color: #64748b;
+        }
+        .badge-soft {
+            background-color: #eef2ff;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .stats-card {
+            background: white;
+            border-radius: 1.4rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+            height: 100%;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+            color: white;
+            border-radius: 2rem;
+            padding: 2.5rem;
+        }
+        .footer-note {
+            color: #64748b;
+        }
+        @media (max-width: 768px) {
+            .hero-portfolio {
+                padding: 72px 0 36px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg sticky-top py-3">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Dev<span style="color:#0f172a;">House</span></a>
+        <div class="ms-auto d-flex gap-2">
+            <a href="index.html#portfolio" class="btn btn-outline-custom">Kembali</a>
+            <a href="index.html#contact-message-card" class="btn btn-primary-custom">Konsultasi</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero-portfolio">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+                <span class="badge bg-white text-primary px-3 py-2 rounded-pill shadow-sm">Dummy Halaman Portofolio</span>
+                <h1 class="section-title mt-3">Koleksi Proyek Lebih Lengkap</h1>
+                <p class="lead text-secondary mt-4 mb-0">Halaman ini menampilkan versi dummy portofolio yang lebih banyak untuk simulasi saat tombol `Lihat Semua Proyek` diklik.</p>
+            </div>
+            <div class="col-lg-5">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="stats-card text-center">
+                            <h2 class="fw-bold text-primary mb-1">24+</h2>
+                            <p class="mb-0 project-meta">Proyek Selesai</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stats-card text-center">
+                            <h2 class="fw-bold text-primary mb-1">12</h2>
+                            <p class="mb-0 project-meta">Industri Klien</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stats-card text-center">
+                            <h2 class="fw-bold text-primary mb-1">98%</h2>
+                            <p class="mb-0 project-meta">Klien Puas</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stats-card text-center">
+                            <h2 class="fw-bold text-primary mb-1">6</h2>
+                            <p class="mb-0 project-meta">Tim Spesialis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex flex-wrap gap-2 mb-4">
+            <span class="filter-chip">Semua</span>
+            <span class="filter-chip">Website</span>
+            <span class="filter-chip">Mobile App</span>
+            <span class="filter-chip">ERP / CRM</span>
+            <span class="filter-chip">UI/UX</span>
+            <span class="filter-chip">Konsultasi Digital</span>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="project-item">
+                    <img src="https://placehold.co/600x400/F1F5F9/4F46E5?text=Property+Web&font=montserrat" alt="Property Web">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge badge-soft rounded-pill">Website</span>
+                            <span class="project-meta">2026</span>
+                        </div>
+                        <h5 class="fw-bold">Property Marketplace</h5>
+                        <p class="text-secondary mb-3">Platform listing properti dengan fitur pencarian lokasi, simulasi KPR, dan dashboard agen.</p>
+                        <span class="badge bg-light text-dark me-1">Next.js</span>
+                        <span class="badge bg-light text-dark me-1">Laravel</span>
+                        <span class="badge bg-light text-dark">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-item">
+                    <img src="https://placehold.co/600x400/F1F5F9/4F46E5?text=Fintech+App&font=montserrat" alt="Fintech App">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge badge-soft rounded-pill">Mobile App</span>
+                            <span class="project-meta">2026</span>
+                        </div>
+                        <h5 class="fw-bold">Fintech Budget Tracker</h5>
+                        <p class="text-secondary mb-3">Aplikasi pencatatan keuangan pribadi dengan analitik pengeluaran dan notifikasi budget.</p>
+                        <span class="badge bg-light text-dark me-1">Flutter</span>
+                        <span class="badge bg-light text-dark me-1">Firebase</span>
+                        <span class="badge bg-light text-dark">REST API</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-item">
+                    <img src="https://placehold.co/600x400/F1F5F9/4F46E5?text=CRM+Sales&font=montserrat" alt="CRM Sales">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge badge-soft rounded-pill">ERP / CRM</span>
+                            <span class="project-meta">2025</span>
+                        </div>
+                        <h5 class="fw-bold">CRM Tim Penjualan</h5>
+                        <p class="text-secondary mb-3">Sistem pipeline penjualan, lead management, reminder follow-up, dan laporan performa tim.</p>
+                        <span class="badge bg-light text-dark me-1">Vue.js</span>
+                        <span class="badge bg-light text-dark me-1">Node.js</span>
+                        <span class="badge bg-light text-dark">MySQL</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-item">
+                    <img src="https://placehold.co/600x400/F1F5F9/4F46E5?text=School+System&font=montserrat" alt="School System">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge badge-soft rounded-pill">Website</span>
+                            <span class="project-meta">2025</span>
+                        </div>
+                        <h5 class="fw-bold">Sistem Akademik Sekolah</h5>
+                        <p class="text-secondary mb-3">Portal siswa, guru, absensi, penilaian, dan pembayaran sekolah dalam satu dashboard.</p>
+                        <span class="badge bg-light text-dark me-1">React.js</span>
+                        <span class="badge bg-light text-dark me-1">Express</span>
+                        <span class="badge bg-light text-dark">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-item">
+                    <img src="https://placehold.co/600x400/F1F5F9/4F46E5?text=Food+Delivery&font=montserrat" alt="Food Delivery">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge badge-soft rounded-pill">Mobile App</span>
+                            <span class="project-meta">2025</span>
+                        </div>
+                        <h5 class="fw-bold">Food Delivery App</h5>
+                        <p class="text-secondary mb-3">Aplikasi pemesanan makanan dengan live tracking kurir, voucher promo, dan wallet digital.</p>
+                        <span class="badge bg-light text-dark me-1">React Native</span>
+                        <span class="badge bg-light text-dark me-1">Laravel</span>
+                        <span class="badge bg-light text-dark">Midtrans</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-item">
+                    <img src="https://placehold.co/600x400/F1F5F9/4F46E5?text=UI%2FUX+Banking&font=montserrat" alt="UI UX Banking">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge badge-soft rounded-pill">UI/UX</span>
+                            <span class="project-meta">2024</span>
+                        </div>
+                        <h5 class="fw-bold">Redesign Mobile Banking</h5>
+                        <p class="text-secondary mb-3">Perancangan ulang flow transaksi, dashboard keuangan, dan onboarding pengguna baru.</p>
+                        <span class="badge bg-light text-dark me-1">Figma</span>
+                        <span class="badge bg-light text-dark me-1">Prototype</span>
+                        <span class="badge bg-light text-dark">User Test</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-item">
+                    <img src="https://placehold.co/600x400/F1F5F9/4F46E5?text=Manufacture+ERP&font=montserrat" alt="Manufacture ERP">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge badge-soft rounded-pill">ERP / CRM</span>
+                            <span class="project-meta">2024</span>
+                        </div>
+                        <h5 class="fw-bold">ERP Pabrik Manufaktur</h5>
+                        <p class="text-secondary mb-3">Modul produksi, inventori bahan baku, quality control, dan pelaporan operasional.</p>
+                        <span class="badge bg-light text-dark me-1">Angular</span>
+                        <span class="badge bg-light text-dark me-1">Spring Boot</span>
+                        <span class="badge bg-light text-dark">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-item">
+                    <img src="https://placehold.co/600x400/F1F5F9/4F46E5?text=Travel+Portal&font=montserrat" alt="Travel Portal">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge badge-soft rounded-pill">Website</span>
+                            <span class="project-meta">2024</span>
+                        </div>
+                        <h5 class="fw-bold">Portal Booking Wisata</h5>
+                        <p class="text-secondary mb-3">Situs reservasi paket wisata lengkap dengan review, pembayaran, dan manajemen itinerary.</p>
+                        <span class="badge bg-light text-dark me-1">Nuxt</span>
+                        <span class="badge bg-light text-dark me-1">Laravel</span>
+                        <span class="badge bg-light text-dark">Xendit</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="project-item">
+                    <img src="https://placehold.co/600x400/F1F5F9/4F46E5?text=Digital+Audit&font=montserrat" alt="Digital Audit">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge badge-soft rounded-pill">Konsultasi Digital</span>
+                            <span class="project-meta">2024</span>
+                        </div>
+                        <h5 class="fw-bold">Audit Transformasi Digital</h5>
+                        <p class="text-secondary mb-3">Pemetaan proses bisnis dan roadmap implementasi digital untuk perusahaan distribusi regional.</p>
+                        <span class="badge bg-light text-dark me-1">Audit</span>
+                        <span class="badge bg-light text-dark me-1">Roadmap</span>
+                        <span class="badge bg-light text-dark">Workshop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-box mt-5">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <h3 class="fw-bold mb-2">Ingin proyek Anda jadi portofolio berikutnya?</h3>
+                    <p class="mb-0 text-white-50">Diskusikan kebutuhan website, aplikasi mobile, atau software custom bersama tim DevHouse.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="index.html#contact-message-card" class="btn btn-light px-4 py-2 fw-semibold">Mulai Konsultasi</a>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer-note text-center mt-4 mb-0">Halaman ini adalah dummy portfolio tambahan untuk kebutuhan tampilan tugas Digital Bisnis.</p>
+    </div>
+</section>
+</body>
+</html>
